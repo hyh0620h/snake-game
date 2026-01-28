@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏 - Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🐍 贪吃蛇游戏</h1>
+
+        <div class="score-board">
+            <div class="score">
+                <span>得分：</span>
+                <span id="score">0</span>
+            </div>
+            <div class="high-score">
+                <span>最高分：</span>
+                <span id="highScore">0</span>
+            </div>
+            <div class="speed-info">
+                <span>速度：</span>
+                <span id="speedLevel">1</span>
+            </div>
+        </div>
+
+        <!-- 游戏设置面板 -->
+        <div class="settings-panel">
+            <div class="setting-group">
+                <label>🎵 背景音乐：</label>
+                <select id="musicSelect">
+                    <option value="none">关闭</option>
+                    <option value="music1">轻快音乐</option>
+                    <option value="music2">经典音乐</option>
+                    <option value="music3">电子音乐</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>🎨 蛇的颜色：</label>
+                <div class="color-options">
+                    <button class="color-btn active" data-color="green" style="background: #00ff00;"></button>
+                    <button class="color-btn" data-color="blue" style="background: #00bfff;"></button>
+                    <button class="color-btn" data-color="purple" style="background: #9370db;"></button>
+                    <button class="color-btn" data-color="orange" style="background: #ff8c00;"></button>
+                    <button class="color-btn" data-color="pink" style="background: #ff69b4;"></button>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+        <div class="controls">
+            <p>🎮 控制说明：</p>
+            <ul>
+                <li>使用方向键 ↑ ↓ ← → 控制蛇的移动</li>
+                <li>按空格键暂停/继续游戏</li>
+                <li>吃到苹果可以增加分数和长度</li>
+                <li>得分越高，蛇移动越快！</li>
+            </ul>
+        </div>
+
+        <div class="button-group">
+            <button id="startBtn" class="btn">开始游戏</button>
+            <button id="restartBtn" class="btn">重新开始</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>游戏结束！</h2>
+            <p>您的得分：<span id="finalScore">0</span></p>
+            <button id="playAgainBtn" class="btn">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
