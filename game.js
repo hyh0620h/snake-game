@@ -22,7 +22,7 @@ let highScore = localStorage.getItem('snakeHighScore') || 0; // 从本地存储�
 let gameRunning = false; // 游戏是否正在运行
 let gamePaused = false; // 游戏是否暂停
 let gameLoop; // 游戏循环定时器
-let gameSpeed = 150; // 初始游戏速度（毫秒）
+let gameSpeed = 200; // 初始游戏速度（毫秒）
 let speedLevel = 1; // 速度等级
 
 // 蛇的颜色配置
@@ -141,8 +141,8 @@ function updateGameSpeed() {
         speedLevel = newSpeedLevel;
         speedLevelElement.textContent = speedLevel;
 
-        // 速度递增公式：150ms -> 50ms（最快）
-        gameSpeed = Math.max(50, 150 - (speedLevel - 1) * 10);
+        // 速度递增公式：200ms -> 80ms（最快）
+        gameSpeed = Math.max(80, 200 - (speedLevel - 1) * 12);
 
         // 重新设置游戏循环
         clearInterval(gameLoop);
@@ -329,7 +329,7 @@ function startGame() {
     dy = 0;
     score = 0;
     speedLevel = 1;
-    gameSpeed = 150;
+    gameSpeed = 200;
     scoreElement.textContent = score;
     speedLevelElement.textContent = speedLevel;
     gameRunning = true;
@@ -453,6 +453,35 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('startBtn').addEventListener('click', startGame);
 document.getElementById('restartBtn').addEventListener('click', restartGame);
 document.getElementById('playAgainBtn').addEventListener('click', restartGame);
+
+// 方向控制按钮事件
+document.getElementById('upBtn').addEventListener('click', () => {
+    if (dy === 0) { // 防止反向移动
+        dx = 0;
+        dy = -1;
+    }
+});
+
+document.getElementById('downBtn').addEventListener('click', () => {
+    if (dy === 0) {
+        dx = 0;
+        dy = 1;
+    }
+});
+
+document.getElementById('leftBtn').addEventListener('click', () => {
+    if (dx === 0) {
+        dx = -1;
+        dy = 0;
+    }
+});
+
+document.getElementById('rightBtn').addEventListener('click', () => {
+    if (dx === 0) {
+        dx = 1;
+        dy = 0;
+    }
+});
 
 // ========== 初始化 ==========
 // 绘制初始静态画面

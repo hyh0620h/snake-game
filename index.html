@@ -50,10 +50,20 @@
 
         <canvas id="gameCanvas" width="400" height="400"></canvas>
 
+        <!-- 方向控制按钮 -->
+        <div class="direction-controls">
+            <button id="upBtn" class="direction-btn up-btn">↑</button>
+            <div class="horizontal-btns">
+                <button id="leftBtn" class="direction-btn left-btn">←</button>
+                <button id="downBtn" class="direction-btn down-btn">↓</button>
+                <button id="rightBtn" class="direction-btn right-btn">→</button>
+            </div>
+        </div>
+
         <div class="controls">
             <p>🎮 控制说明：</p>
             <ul>
-                <li>使用方向键 ↑ ↓ ← → 控制蛇的移动</li>
+                <li>使用方向键 ↑ ↓ ← → 或点击方向按钮控制蛇的移动</li>
                 <li>按空格键暂停/继续游戏</li>
                 <li>吃到苹果可以增加分数和长度</li>
                 <li>得分越高，蛇移动越快！</li>
